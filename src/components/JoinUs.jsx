@@ -34,7 +34,7 @@ const JoinUs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Aqui você integraria com o EmailJS
+    // EmailJS
     console.log('Dados da candidatura:', formData);
     
     alert('Candidatura enviada com sucesso! Analisaremos seu perfil e entraremos em contato.');

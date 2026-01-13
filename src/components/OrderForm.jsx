@@ -85,7 +85,7 @@ const OrderForm = () => {
       return;
     }
 
-    // Aqui você integraria com o EmailJS
+    // EmailJS
     console.log('Dados do pedido:', { ...formData, quantities, orderSummary });
     
     alert(`Pedido enviado com sucesso!\nTotal: € ${orderSummary.total.toFixed(2).replace('.', ',')}\nEntraremos em contato em breve para confirmar.`);
