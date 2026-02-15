@@ -1,34 +1,32 @@
 import { useState } from 'react';
 
+const navLinks = [
+  { href: '#about', label: 'About' },
+  { href: '#products', label: 'Products' },
+  { href: '#gallery', label: 'Gallery' },
+  { href: '#quality', label: 'Quality' },
+  { href: '#contact', label: 'Contact' },
+];
+
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+  const [open, setOpen] = useState(false);
 
   return (
-    <header>
-      <div className="container">
-        <div className="header-content">
-          <a href="#" className="logo">Shannon<span>Vale</span> Foods</a>
-          <button className="mobile-menu" onClick={toggleMenu}>
-            ☰
-          </button>
-          <nav className={isMenuOpen ? 'active' : ''}>
-            <ul>
-              <li><a href="#about" onClick={closeMenu}>About Us</a></li>
-              <li><a href="#products" onClick={closeMenu}>Products</a></li>
-              <li><a href="#order" onClick={closeMenu}>Order NOW</a></li>
-              <li><a href="#join" onClick={closeMenu}>Join Us</a></li>
-              <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
-            </ul>
-          </nav>
-        </div>
+    <header className="site-header">
+      <div className="container nav-wrap">
+        <a href="#top" className="brand">
+          Clonakilty Poultry Co.
+        </a>
+        <button className="menu-toggle" onClick={() => setOpen((prev) => !prev)} aria-label="Toggle menu">
+          ☰
+        </button>
+        <nav className={`site-nav ${open ? 'open' : ''}`}>
+          {navLinks.map((link) => (
+            <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
       </div>
     </header>
   );
