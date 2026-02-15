@@ -64,8 +64,9 @@ p {
 }
 
 .button:hover {
-  background: var(--green-soft);
+  background: black;
   transform: translateY(-1px);
+  box-shadow: #101412 16px 16px 32px 10px;
 }
 
 .site-header {
@@ -146,7 +147,7 @@ p {
 .about-image img {
   width: 100%;
   border-radius: 14px;
-  box-shadow: 0 16px 32px rgba(19, 26, 22, 0.15);
+  box-shadow: #101412 16px 16px 32px 10px;
 }
 
 .section-intro {
@@ -183,6 +184,7 @@ p {
   aspect-ratio: 16 / 8;
   border-radius: 14px;
   overflow: hidden;
+  box-shadow: #101412 16px 16px 32px 10px;
 }
 
 .slide {
