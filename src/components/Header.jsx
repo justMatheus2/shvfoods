@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
 const navLinks = [
-  { href: '#about', label: 'About' },
+  { href: '#about', label: 'Our story' },
   { href: '#products', label: 'Products' },
-  { href: '#gallery', label: 'Gallery' },
+  { href: '#gallery', label: 'Operations' },
   { href: '#quality', label: 'Quality' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#contact-form', label: 'Contact' },
 ];
 
 const Header = () => {
@@ -26,6 +26,9 @@ const Header = () => {
               {link.label}
             </a>
           ))}
+          <a href="#contact-form" className="button button-nav" onClick={() => setOpen(false)}>
+            Request contact
+          </a>
         </nav>
       </div>
     </header>
