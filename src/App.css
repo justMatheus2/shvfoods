@@ -396,34 +396,15 @@ a {
   background: #f4efe6;
 }
 
-.form-grid {
+.contact-links {
   margin-top: 1rem;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.9rem;
 }
 
-.form-grid label {
-  display: grid;
-  gap: 0.4rem;
-  font-weight: 600;
-}
-
-.form-grid input,
-.form-grid textarea {
-  border: 1px solid #bfb8ac;
-  border-radius: 10px;
-  padding: 0.72rem;
-  font: inherit;
-  background: #fffdf9;
-}
-
-.full-width {
-  grid-column: 1 / -1;
-}
-
-.form-grid button {
-  justify-self: start;
+.contact-links .button {
+  text-align: center;
 }
 
 .final-cta {
@@ -521,11 +502,15 @@ a {
     opacity: 1;
   }
 
-  .form-grid,
   .trust-grid,
   .operations-grid,
   .product-grid {
     grid-template-columns: 1fr;
+  }
+
+  .contact-links {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .footer-grid {
