@@ -13,6 +13,14 @@ const Footer = () => (
         <p>
           Email: <a href="mailto:info@clonakiltypoultry.ie">info@clonakiltypoultry.ie</a>
         </p>
+        <div className="cta-links">
+          <a className="button button-footer" href="tel:+353238800100">
+            Call now
+          </a>
+          <a className="button button-footer" href="mailto:info@clonakiltypoultry.ie">
+            Send email
+          </a>
+        </div>
       </div>
     </div>
     <div className="copyright">© {new Date().getFullYear()} Clonakilty Poultry Co. All rights reserved.</div>

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 const navLinks = [
-  { href: '#about', label: 'About' },
+  { href: '#about', label: 'Our story' },
   { href: '#products', label: 'Products' },
-  { href: '#gallery', label: 'Gallery' },
+  { href: '#gallery', label: 'Operations' },
   { href: '#quality', label: 'Quality' },
   { href: '#contact', label: 'Contact' },
 ];
@@ -26,6 +26,9 @@ const Header = () => {
               {link.label}
             </a>
           ))}
+          <a href="#contact" className="button button-nav" onClick={() => setOpen(false)}>
+            Call or email
+          </a>
         </nav>
       </div>
     </header>
