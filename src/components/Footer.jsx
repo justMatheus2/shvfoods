@@ -13,6 +13,9 @@ const Footer = () => (
         <p>
           Email: <a href="mailto:info@clonakiltypoultry.ie">info@clonakiltypoultry.ie</a>
         </p>
+        <a className="button button-footer" href="#contact-form">
+          Request commercial contact
+        </a>
       </div>
     </div>
     <div className="copyright">© {new Date().getFullYear()} Clonakilty Poultry Co. All rights reserved.</div>

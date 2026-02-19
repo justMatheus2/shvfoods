@@ -2,14 +2,19 @@ const Hero = () => (
   <section id="top" className="hero section">
     <div className="container hero-content reveal">
       <p className="eyebrow">Clonakilty, West Cork, Ireland</p>
-      <h1>Premium Poultry Production Built on West Cork Tradition</h1>
+      <h1>Tradition, scale, and trust for the Irish poultry market</h1>
       <p>
-        For generations, our family-led operation has supplied trusted chicken products from a modern,
-        large-scale facility rooted in local farming values.
+        Premium supply for distributors, retail chains, and food service with a strong focus on quality,
+        traceability, and commercial consistency.
       </p>
-      <a className="button" href="#contact">
-        Contact Us
+      <a className="button" href="#contact-form">
+        Request a quote
       </a>
+      <div className="hero-microcopy">
+        <span>Become a partner</span>
+        <span>Request a sample for your company</span>
+        <span>Check availability and terms</span>
+      </div>
     </div>
   </section>
 );

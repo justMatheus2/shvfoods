@@ -6,6 +6,7 @@ import About from './components/About';
 import Products from './components/Products';
 import Gallery from './components/Gallery';
 import TrustSection from './components/TrustSection';
+import OrderForm from './components/OrderForm';
 import FinalCta from './components/FinalCta';
 import Footer from './components/Footer';
 
@@ -40,6 +41,7 @@ function App() {
         <Products />
         <Gallery />
         <TrustSection />
+        <OrderForm />
         <FinalCta />
       </main>
       <Footer />
