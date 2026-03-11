@@ -1,19 +1,22 @@
 const Hero = () => (
   <section id="top" className="hero section">
     <div className="container hero-content reveal">
-      <p className="eyebrow">Clonakilty, West Cork, Ireland</p>
-      <h1>Tradition, scale, and trust for the Irish poultry market</h1>
+      <p className="eyebrow">SHV Foods</p>
+      <h1>Freshly Sourced, Masterfully Prepared</h1>
       <p>
-        Premium supply for distributors, retail chains, and food service with a strong focus on quality,
-        traceability, and commercial consistency.
+        Premium culinary ingredients delivered with traceable quality, modern
+        safety standards, and fast, reliable service.
       </p>
-      <a className="button" href="#contact-form">
-        Request a quote
+      <a
+        className="button button-large"
+        href="mailto:orders@shvfoods.com?subject=Order%20Inquiry"
+      >
+        Order Now
       </a>
       <div className="hero-microcopy">
-        <span>Become a partner</span>
-        <span>Request a sample for your company</span>
-        <span>Check availability and terms</span>
+        <span>Quality Guaranteed</span>
+        <span>Fast delivery nationwide</span>
+        <span>Flexible order volumes</span>
       </div>
     </div>
   </section>

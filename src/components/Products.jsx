@@ -1,31 +1,48 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  Navigation,
+  Pagination,
+  A11y,
+  Autoplay,
+  EffectFade,
+} from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+
 const products = [
   {
-    title: 'Fresh chicken cuts',
-    description: 'Fresh cuts prepared for retail and food service with consistent standards.',
-    icon: '🍗',
+    title: "Free‑range chicken breast",
+    price: "$12.99 / kg",
+    description:
+      "Lean, tender fillets sourced from trusted farms with full traceability.",
     image:
-      'https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=900&q=80',
+      "https://images.unsplash.com/photo-1543353071-087092ec3939?auto=format&fit=crop&w=900&q=80",
   },
   {
-    title: 'Cold-chain integrity',
-    description: 'Monitored cold chain from processing to final delivery.',
-    icon: '❄️',
+    title: "Heritage roast chicken",
+    price: "$18.50 each",
+    description:
+      "Slow-roasted flavor profile with consistent quality for premium menus.",
     image:
-      'https://images.unsplash.com/photo-1598514983318-2f64f8f4796c?auto=format&fit=crop&w=900&q=80',
+      "https://images.unsplash.com/photo-1514516870922-21a30b668d4a?auto=format&fit=crop&w=900&q=80",
   },
   {
-    title: 'Quality inspection',
-    description: 'Strict inspection and controlled handling through every production stage.',
-    icon: '✅',
+    title: "Butcher-cut portions",
+    price: "$10.75 / kg",
+    description:
+      "Custom portioning with strict cold-chain control for food service.",
     image:
-      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80',
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80",
   },
   {
-    title: 'Scalable distribution',
-    description: 'Scalable capacity for distributors and nationwide retail networks.',
-    icon: '🚚',
+    title: "Premium poultry stock",
+    price: "$7.25 / L",
+    description:
+      "Rich, clarified stock for sauces and soups, prepared in small batches.",
     image:
-      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80',
+      "https://images.unsplash.com/photo-1512058564366-c9e0d2d0f434?auto=format&fit=crop&w=900&q=80",
   },
 ];
 
@@ -33,25 +50,54 @@ const Products = () => (
   <section id="products" className="section products">
     <div className="container reveal">
       <p className="eyebrow">Our Products</p>
-      <h2>Reliable supply of premium poultry products</h2>
+      <h2>Premium ingredients for culinary excellence</h2>
       <p className="section-intro">
-        We produce a broad range of chicken products for distributors, retail chains, and food service
-        operations that require consistency, freshness, and dependable delivery.
+        Discover a curated selection of proteins and preparations designed for
+        high-volume kitchens, retail partners, and food service operators.
       </p>
 
-      <div className="product-grid">
+      <Swiper
+        modules={[Navigation, Pagination, A11y, Autoplay, EffectFade]}
+        spaceBetween={18}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        loop
+        autoplay={{
+          delay: 4500,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
+        effect="fade"
+        fadeEffect={{ crossFade: true }}
+        breakpoints={{
+          640: { slidesPerView: 1.2 },
+          900: { slidesPerView: 2 },
+          1180: { slidesPerView: 3 },
+        }}
+      >
         {products.map((item) => (
-          <article key={item.title} className="product-card" style={{ backgroundImage: `url(${item.image})` }}>
-            <div className="product-overlay">
-              <span className="product-icon" aria-hidden="true">
-                {item.icon}
-              </span>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </div>
-          </article>
+          <SwiperSlide key={item.title}>
+            <article className="product-card">
+              <div
+                className="product-image"
+                style={{ backgroundImage: `url(${item.image})` }}
+                aria-hidden="true"
+              />
+              <div className="product-overlay">
+                <div className="product-meta">
+                  <h3>{item.title}</h3>
+                  <p className="product-price">{item.price}</p>
+                </div>
+                <p>{item.description}</p>
+                <a className="button button-small" href="#contact-form">
+                  More info
+                </a>
+              </div>
+            </article>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   </section>
 );

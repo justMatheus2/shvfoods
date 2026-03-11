@@ -1,14 +1,15 @@
-import { useEffect } from 'react';
-import './App.css';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import Products from './components/Products';
-import Gallery from './components/Gallery';
-import TrustSection from './components/TrustSection';
-import OrderForm from './components/OrderForm';
-import FinalCta from './components/FinalCta';
-import Footer from './components/Footer';
+import { useEffect } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Products from "./components/Products";
+import Gallery from "./components/Gallery";
+import TrustSection from "./components/TrustSection";
+import OrderForm from "./components/OrderForm";
+import FinalCta from "./components/FinalCta";
+import Footer from "./components/Footer";
+import StickyOrderBar from "./components/StickyOrderBar";
 
 function App() {
   useEffect(() => {
@@ -16,14 +17,14 @@ function App() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add("visible");
           }
         });
       },
       { threshold: 0.2 },
     );
 
-    const nodes = document.querySelectorAll('.reveal');
+    const nodes = document.querySelectorAll(".reveal");
     nodes.forEach((node) => observer.observe(node));
 
     return () => {
@@ -44,6 +45,7 @@ function App() {
         <OrderForm />
         <FinalCta />
       </main>
+      <StickyOrderBar />
       <Footer />
     </div>
   );
