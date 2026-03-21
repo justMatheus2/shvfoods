@@ -1,3 +1,5 @@
+import "../styles/TrustSection.css";
+
 const items = [
   { title: 'Locally sourced', text: 'Trusted local producer network in West Cork.', icon: '🗺️' },
   { title: 'Quality controlled', text: 'Continuous monitoring for quality and safety.', icon: '🌡️' },

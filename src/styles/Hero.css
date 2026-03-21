@@ -1,0 +1,72 @@
+.hero {
+  min-height: 80vh;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(120deg, rgba(31, 24, 20, 0.8), rgba(74, 107, 90, 0.42)),
+    url("https://images.unsplash.com/photo-1516466723877-e4ec1d736c8a?auto=format&fit=crop&w=1800&q=80")
+      center / cover;
+  color: var(--white);
+}
+
+.hero-content {
+  max-width: 760px;
+  animation: hero-text-pop 1.15s ease-out both;
+}
+
+@keyframes hero-text-pop {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+}
+
+.hero p {
+  color: #ede4d8;
+  max-width: 62ch;
+}
+
+.hero-microcopy {
+  margin-top: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.hero-microcopy span {
+  opacity: 0;
+  transform: translateY(8px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  animation: microcopy-pop 0.65s ease-out forwards;
+}
+
+.hero-microcopy span:nth-child(1) {
+  animation-delay: 0.55s;
+}
+
+.hero-microcopy span:nth-child(2) {
+  animation-delay: 0.72s;
+}
+
+.hero-microcopy span:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+@keyframes microcopy-pop {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,3 +1,5 @@
+import "../styles/StickyOrderBar.css";
+
 const StickyOrderBar = () => (
   <div
     className="sticky-order-bar"

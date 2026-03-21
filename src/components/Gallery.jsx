@@ -1,3 +1,5 @@
+import "../styles/Gallery.css";
+
 const photos = [
   {
     title: 'Monitored process',

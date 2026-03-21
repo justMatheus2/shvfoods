@@ -1,3 +1,5 @@
+import "../styles/Footer.css";
+
 const Footer = () => (
   <footer id="contact" className="site-footer">
     <div className="container footer-grid">

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/Header.css";
 
 const navLinks = [
   { href: "#about", label: "About" },

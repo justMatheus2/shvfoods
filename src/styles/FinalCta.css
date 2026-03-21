@@ -1,0 +1,19 @@
+.final-cta {
+  text-align: center;
+  background: var(--green-dark);
+  color: var(--white);
+  padding: 4rem 0;
+}
+
+.final-cta p {
+  color: #e6ece8;
+  max-width: 60ch;
+  margin: 0.65rem auto 1.8rem;
+}
+
+.final-cta-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}

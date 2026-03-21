@@ -1,0 +1,58 @@
+.contact-form {
+  background: #f4efe6;
+}
+
+.form-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.form-grid label {
+  display: grid;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+
+.form-grid input,
+.form-grid textarea {
+  border: 1px solid #bfb8ac;
+  border-radius: 10px;
+  padding: 0.72rem;
+  font: inherit;
+  background: #fffdf9;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-grid button {
+  justify-self: start;
+}
+
+.form-status {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.form-status.success {
+  background: rgba(37, 104, 57, 0.16);
+  color: #1b4228;
+  border: 1px solid rgba(37, 104, 57, 0.32);
+}
+
+.form-status.error {
+  background: rgba(160, 50, 35, 0.16);
+  color: #7a1910;
+  border: 1px solid rgba(160, 50, 35, 0.32);
+}
+
+@media (max-width: 860px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

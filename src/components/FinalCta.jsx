@@ -1,3 +1,5 @@
+import "../styles/FinalCta.css";
+
 const FinalCta = () => (
   <section className="section final-cta">
     <div className="container reveal">

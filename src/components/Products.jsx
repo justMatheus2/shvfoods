@@ -1,105 +1,168 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import {
-  Navigation,
-  Pagination,
-  A11y,
-  Autoplay,
-  EffectFade,
-} from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/effect-fade";
+import { useEffect, useState } from "react";
+import "../styles/Products.css";
 
-const products = [
-  {
-    title: "Free‑range chicken breast",
-    price: "$12.99 / kg",
-    description:
-      "Lean, tender fillets sourced from trusted farms with full traceability.",
-    image:
-      "https://images.unsplash.com/photo-1543353071-087092ec3939?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    title: "Heritage roast chicken",
-    price: "$18.50 each",
-    description:
-      "Slow-roasted flavor profile with consistent quality for premium menus.",
-    image:
-      "https://images.unsplash.com/photo-1514516870922-21a30b668d4a?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    title: "Butcher-cut portions",
-    price: "$10.75 / kg",
-    description:
-      "Custom portioning with strict cold-chain control for food service.",
-    image:
-      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    title: "Premium poultry stock",
-    price: "$7.25 / L",
-    description:
-      "Rich, clarified stock for sauces and soups, prepared in small batches.",
-    image:
-      "https://images.unsplash.com/photo-1512058564366-c9e0d2d0f434?auto=format&fit=crop&w=900&q=80",
-  },
+const categories = [
+  "Whole Chicken",
+  "Double Breast Chicken",
+  "Bulk Products",
+  "Gas Flushed Products",
+  "Flash Fry Products",
+  "Free Range Chicken",
 ];
 
-const Products = () => (
-  <section id="products" className="section products">
-    <div className="container reveal">
-      <p className="eyebrow">Our Products</p>
-      <h2>Premium ingredients for culinary excellence</h2>
-      <p className="section-intro">
-        Discover a curated selection of proteins and preparations designed for
-        high-volume kitchens, retail partners, and food service operators.
-      </p>
-
-      <Swiper
-        modules={[Navigation, Pagination, A11y, Autoplay, EffectFade]}
-        spaceBetween={18}
-        slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
-        loop
-        autoplay={{
-          delay: 4500,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        }}
-        effect="fade"
-        fadeEffect={{ crossFade: true }}
-        breakpoints={{
-          640: { slidesPerView: 1.2 },
-          900: { slidesPerView: 2 },
-          1180: { slidesPerView: 3 },
-        }}
-      >
-        {products.map((item) => (
-          <SwiperSlide key={item.title}>
-            <article className="product-card">
-              <div
-                className="product-image"
-                style={{ backgroundImage: `url(${item.image})` }}
-                aria-hidden="true"
-              />
-              <div className="product-overlay">
-                <div className="product-meta">
-                  <h3>{item.title}</h3>
-                  <p className="product-price">{item.price}</p>
-                </div>
-                <p>{item.description}</p>
-                <a className="button button-small" href="#contact-form">
-                  More info
-                </a>
-              </div>
-            </article>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-  </section>
+const categoryProducts = Object.fromEntries(
+  categories.map((category) => [
+    category,
+    Array.from({ length: 10 }, (_, index) => `Produto ${index + 1}`),
+  ]),
 );
+
+function CategoryList({ items, onSelectCategory }) {
+  return (
+    <div className="products-modal-grid">
+      {items.map((category) => (
+        <button
+          key={category}
+          type="button"
+          className="products-category-card"
+          onClick={() => onSelectCategory(category)}
+        >
+          {category}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function ProductList({ category, products }) {
+  return (
+    <div className="products-modal-body">
+      <h3>{category}</h3>
+      <ul className="products-list">
+        {products.map((product) => (
+          <li key={product} className="products-list-item">
+            {product}
+          </li>
+        ))}
+      </ul>
+      <a
+        className="button button-large products-order-button"
+        href="mailto:orders@shvfoods.com?subject=Order%20Inquiry"
+      >
+        Order Now
+      </a>
+    </div>
+  );
+}
+
+const Products = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  useEffect(() => {
+    if (!isModalOpen) {
+      return undefined;
+    }
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [isModalOpen]);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+    setSelectedCategory(null);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedCategory(null);
+  };
+
+  const showCategories = () => {
+    setSelectedCategory(null);
+  };
+
+  return (
+    <section id="products" className="section products">
+      <div className="container reveal products-intro">
+        <p className="eyebrow">Our Products</p>
+        <h2>Explore our product catalog</h2>
+        <p className="section-intro">
+          Open the catalog to browse our main categories and view the available
+          products inside each one.
+        </p>
+        <button
+          type="button"
+          className="button button-large"
+          onClick={openModal}
+        >
+          Products
+        </button>
+      </div>
+
+      {isModalOpen && (
+        <div
+          className="products-modal-overlay"
+          onClick={closeModal}
+          role="presentation"
+        >
+          <div
+            className="products-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="products-modal-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="products-modal-header">
+              {selectedCategory ? (
+                <button
+                  type="button"
+                  className="products-back-button"
+                  onClick={showCategories}
+                >
+                  Voltar
+                </button>
+              ) : (
+                <span />
+              )}
+
+              <button
+                type="button"
+                className="products-close-button"
+                onClick={closeModal}
+                aria-label="Close products modal"
+              >
+                X
+              </button>
+            </div>
+
+            <div className="products-modal-content">
+              <p className="eyebrow">Products</p>
+              <h2 id="products-modal-title">
+                {selectedCategory || "Choose a category"}
+              </h2>
+
+              {selectedCategory ? (
+                <ProductList
+                  category={selectedCategory}
+                  products={categoryProducts[selectedCategory]}
+                />
+              ) : (
+                <CategoryList
+                  items={categories}
+                  onSelectCategory={setSelectedCategory}
+                />
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};
 
 export default Products;

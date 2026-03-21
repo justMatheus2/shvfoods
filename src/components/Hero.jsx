@@ -1,3 +1,5 @@
+import "../styles/Hero.css";
+
 const Hero = () => (
   <section id="top" className="hero section">
     <div className="container hero-content reveal">
