@@ -52,7 +52,7 @@ const About = () => (
 
       <div className="reveal about-visual">
         <img
-          src="https://images.unsplash.com/photo-1495195134817-aeb325a55b65?auto=format&fit=crop&w=1200&q=80"
+          src="./public/fillet.png"
           alt="Chef adding final touches"
         />
       </div>
