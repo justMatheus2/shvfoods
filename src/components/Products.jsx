@@ -13,7 +13,7 @@ const categories = [
 const categoryProducts = Object.fromEntries(
   categories.map((category) => [
     category,
-    Array.from({ length: 10 }, (_, index) => `Produto ${index + 1}`),
+    Array.from({ length: 10 }, (_, index) => `Product ${index + 1}`),
   ]),
 );
 
@@ -124,7 +124,7 @@ const Products = () => {
                   className="products-back-button"
                   onClick={showCategories}
                 >
-                  Voltar
+                  Back
                 </button>
               ) : (
                 <span />
